@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>word counter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        body{
+            background-color: salmon;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        section{
+            height: 40%;
+             padding:1rem;
+             width: 30%;
+             background-color: lightpink;
+             box-shadow:3px 3px 20px 3px black;
+             border-radius: 5px;
+        }    
+        #input{
+              width: 100%;
+              height: 40%;
+              resize: none;
+              border-radius: 3px;
+            padding: 9px 5px;
+        }
+        .dynamic{
+            display: flex;
+            justify-content: space-between;
+            margin-top:30px ;
+            
+        }
+        .dynamic span{
+            font-weight: bold;
+            color:grey;
+        }
+    </style>
+</head>
+<body>
+        <section>
+            <h2>Real time word counter</h2>
+            <br>
+        <textarea name="input" id="input"placeholder="enter you text....." maxlength="80"></textarea>
+        <br/>
+       <div class="dynamic">
+        <span >total charter: <span style="color:blue;" id="total_char">0</span></span>
+        <span >remaning : <span style="color: red;"id="remain">80</span></span>
+       </div>
+        </section>
+        <script>
+            const input = document.getElementById("input");
+            const total_char = document.getElementById("total_char");
+            const remain = document.getElementById("remain");
+
+            input.addEventListener("keyup",()=>{
+                total_char.innerText = input.value.length;
+                remain.innerText= input.getAttribute("maxlength")-input.value.length });
+            
+        </script>
+</body>
+</html>
